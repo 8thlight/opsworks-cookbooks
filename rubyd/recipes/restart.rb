@@ -5,10 +5,10 @@ node[:deploy].each do |application, deploy|
     next
   end
 
-  execute "stop daemon" do
-    command "#{deploy[:deploy_to]}/bin/aggregator/stop"
+  execute "Restart deamon" do
+    command "#{deploy[:deploy_to]}/bin/aggregator/restart"
     only_if do
-      File.exists?("#{deploy[:deploy_to]}/bin/aggregator/stop")
+      File.exists?("#{deploy[:deploy_to]}/bin/aggregator/restart")
     end
   end
 end
