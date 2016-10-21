@@ -20,10 +20,10 @@ node[:deploy].each do |application, deploy|
   end
 
   service "rubyd_#{application}" do
-    start_command "#{deploy[:deploy_to]}/bin/aggregator start"
-    stop_command "#{deploy[:deploy_to]}/bin/aggregator stop"
-    restart_command "#{deploy[:deploy_to]}/bin/aggregator restart"
-    status_command "#{deploy[:deploy_to]}/bin/aggregator status"
+    start_command "#{deploy[:deploy_to]}/bin/aggregator/start"
+    stop_command "#{deploy[:deploy_to]}/bin/aggregator/stop"
+    restart_command "#{deploy[:deploy_to]}/bin/aggregator/restart"
+    status_command "#{deploy[:deploy_to]}/bin/aggregator/status"
     action :nothing
   end
 
