@@ -6,9 +6,9 @@ node[:deploy].each do |application, deploy|
   end
 
   execute "stop daemon" do
-    command "#{deploy[:deploy_to]}/bin/aggregator/stop"
+    command "#{deploy[:deploy_to]}/current/bin/aggregator/stop"
     only_if do
-      File.exists?("#{deploy[:deploy_to]}/bin/aggregator/stop")
+      File.exists?("#{deploy[:deploy_to]}/current/bin/aggregator/stop")
     end
   end
 end
