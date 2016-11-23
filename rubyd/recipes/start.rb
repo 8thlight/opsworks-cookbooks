@@ -8,5 +8,6 @@ node[:deploy].each do |application, deploy|
   execute "start daemon" do
     command "./bin/aggregator/start"
     cwd "#{deploy[:deploy_to]}/current"
+    environment node[:deploy]['tsr_v2'][:environment_variables]
   end
 end
