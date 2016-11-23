@@ -7,8 +7,5 @@ node[:deploy].each do |application, deploy|
 
   execute "Restart deamon" do
     command "#{deploy[:deploy_to]}/bin/aggregator/restart"
-    only_if do
-      File.exists?("#{deploy[:deploy_to]}/bin/aggregator/restart")
-    end
   end
 end
