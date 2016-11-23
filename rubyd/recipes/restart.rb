@@ -6,6 +6,7 @@ node[:deploy].each do |application, deploy|
   end
 
   execute "Restart deamon" do
-    command "#{deploy[:deploy_to]}/current/bin/aggregator/restart"
+    command "./bin/aggregator/restart"
+    cwd "#{deploy[:deploy_to]}/current"
   end
 end
