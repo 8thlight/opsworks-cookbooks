@@ -6,9 +6,7 @@ node[:deploy].each do |application, deploy|
   end
 
   execute "start daemon" do
-    command "#{deploy[:deploy_to]}/current/bin/aggregator/start"
-    only_if do
-      File.exists?("#{deploy[:deploy_to]}/current/bin/aggregator/start")
-    end
+    command "./bin/aggregator/start"
+    cwd "#{deploy[:deploy_to]}/current"
   end
 end
