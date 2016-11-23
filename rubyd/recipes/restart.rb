@@ -8,5 +8,6 @@ node[:deploy].each do |application, deploy|
   execute "Restart deamon" do
     command "./bin/aggregator/restart"
     cwd "#{deploy[:deploy_to]}/current"
+    environment node[:deploy]['tsr_v2'][:environment_variables]
   end
 end
